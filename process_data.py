@@ -5,6 +5,8 @@ files = glob.glob('data/*.csv')
 df_list = []
 for file in files:
     df = pd.read_csv(file)
+    df["price"] = df["price"].replace('[\$,]', '', regex=True).astype(float)
+
     df_list.append(df)
 data = pd.concat(df_list, ignore_index=True)
 
