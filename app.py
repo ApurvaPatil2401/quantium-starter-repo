@@ -11,9 +11,9 @@ df["Date"] = pd.to_datetime(df["Date"])
 #sort by date
 df = df.sort_values("Date")
 
-
 #Dash app
-app = Dash(__name__)
+app = Dash(__name__, use_pages=False)
+
 
 app.layout = html.Div(
     children=[
